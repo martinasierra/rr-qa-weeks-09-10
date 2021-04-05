@@ -34,7 +34,9 @@
                     </div>    
                     <div class="buttons">
                         <input type="reset" name="reset" value="Reset">
-                        <input type="submit" name="submit" value="Submit">  
+                        <input type="submit" name="submit" value="Submit" onclick="getElementById('validationDiv').innerHTML=validate()">  
+                    </div>
+                    <div id="validationDiv">
                     </div>
                 </form>
             </div>    
