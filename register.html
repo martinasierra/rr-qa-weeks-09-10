@@ -10,20 +10,34 @@
     </head>
     <body>
         <div class="page">
-            <h1>Hello :)</h1>
-            <h2>Create an account</h2>
-            <form>
-                <label for="femail">Email</label>   
-                    <input type="email" name="email" placeholder="Email" required>
-                <label for="fname">Full Name</label>
-                    <input type="text" name="fullname" placeholder="Full Name" required>
-                <label for="fpass">Password</label>
-                    <input type="password" name="password" placeholder="Password" required>
-                <label for="fpass">Confirm Password</label>
-                    <input type="password" name="cpassword" placeholder="Confirm Password"required>
-                <input type="reset" name="reset" value="Reset">
-                <input type="submit" name="submit" value="Submit">  
-            </form>
+            <header>
+                <h1>Hello :)</h1>
+            </header>
+            <div class="form-container">
+                <h2>Create an account</h2>
+                <form>
+                    <div class="email">
+                        <label for="femail">Email</label>   
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="full-name">
+                        <label for="fname">Full Name</label>
+                        <input type="text" name="fullname" placeholder="Full Name" required>
+                    </div>
+                    <div class="pass">
+                        <label for="fpass">Password</label>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="c-password">
+                        <label for="fpass">Confirm Password</label>
+                        <input type="password" name="c-password" placeholder="Confirm Password"required>
+                    </div>    
+                    <div class="buttons">
+                        <input type="reset" name="reset" value="Reset">
+                        <input type="submit" name="submit" value="Submit">  
+                    </div>
+                </form>
+            </div>    
             <a href="login.html">Already registered? Log in here!</a>
             <script src="register.js"></script>
         </div>    

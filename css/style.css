@@ -1,0 +1,47 @@
+.page {
+    text-align: center;
+    width: 80%;
+    margin: 4rem auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    margin: 2rem;
+}
+
+h1, h2, a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #19456b;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+label {
+    color: #19456b;
+}
+
+a {
+    color: #ff7a00;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #11698e;
+    background-color: #e7d9ea;
+}
+
+.email, .pass, .full-name, .c-password, .buttons {
+    margin: 1rem;
+}
