@@ -3,6 +3,8 @@ function validate() {
     let hasInputs = document.getElementsByTagName('input');
     let isRequiredE = document.getElementsByClassName("reqE").required;
     let isRequiredP = document.getElementsByClassName("reqP").required;
+    let isRequiredFN = document.getElementsByClassName("reqFN").required;
+    let isRequiredCPass = document.getElementsByClassName("reqConfPass").required;
     const buttonReset = document.querySelector('.b-reset');
     buttonReset.hasAttribute('value');
     let valueBReset = buttonReset.getAttribute('value');
@@ -22,6 +24,16 @@ function validate() {
 }   else if (isRequiredE === false) {
         var node = document.createElement("li");                 
         var textnode = document.createTextNode("Email must be required");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node); 
+}   else if (isRequiredFN === false) {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Full Name must be required");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node); 
+}   else if (isRequiredCPass === false) {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Password confirmation must be required");         
         node.appendChild(textnode);                             
         document.getElementById("myList").appendChild(node); 
 }   else if (isRequiredP === false) {
