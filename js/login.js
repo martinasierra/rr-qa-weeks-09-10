@@ -5,7 +5,7 @@ function validate(){
     a.hasAttribute('href');
     let valueHref = a.getAttribute('href');
     const buttonSignIn = document.getElementsByClassName('button');
-    buttonSignIn.hasAttribute('value');
+    //buttonSignIn.hasAttribute('value');
     let valueButton = buttonSignIn.getAttribute('value');
     if (hasForm<=0) {
         var node = document.createElement("li");                 
@@ -32,7 +32,7 @@ else if (valueButton !== 'Sign In') {
         document.getElementById("myList").appendChild(node);  
 }
 else {
-        var node = document.createElement("p");                 
+        var node = document.createElement("li");                 
         var textnode = document.createTextNode("Validations results: every validation has passed");         
         node.appendChild(textnode);                             
         document.getElementById("myList").appendChild(node);  
