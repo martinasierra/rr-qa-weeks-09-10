@@ -1,10 +1,10 @@
 function validate() {
     let hasForm = document.getElementsByTagName('form');
     let hasInputs = document.getElementsByTagName('input');
-    let isRequiredE = document.getElementsByClassName("reqE").required;
-    let isRequiredP = document.getElementsByClassName("reqP").required;
-    let isRequiredFN = document.getElementsByClassName("reqFN").required;
-    let isRequiredCPass = document.getElementsByClassName("reqConfPass").required;
+    let isRequiredE = document.querySelector(".reqE").required;
+    let isRequiredP = document.querySelector(".reqP").required;
+    let isRequiredFN = document.querySelector(".reqFN").required;
+    let isRequiredCPass = document.querySelector(".reqConfPass").required;
     const buttonReset = document.querySelector('.b-reset');
     buttonReset.hasAttribute('value');
     let valueBReset = buttonReset.getAttribute('value');

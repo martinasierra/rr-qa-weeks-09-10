@@ -1,9 +1,10 @@
 function validate() {
     let hasForm = document.getElementsByTagName('form');
     let hasInputs = document.getElementsByTagName('input');
-    let isRequiredE = document.getElementsByClassName("reqE").required;
-    let isRequiredP = document.getElementsByClassName("reqP").required;
-    const a = document.querySelector('a');a.hasAttribute('href');
+    let isRequiredE = document.querySelector("reqE").required;
+    let isRequiredP = document.querySelector("reqP").required;
+    const a = document.querySelector('a');
+    a.hasAttribute('href');
     let valueHref = a.getAttribute('href');
     const buttonSignIn = document.querySelector('.button');
     buttonSignIn.hasAttribute('value');
