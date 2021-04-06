@@ -4,13 +4,38 @@ function validate(){
     const a = document.querySelector('a');
     a.hasAttribute('href');
     let valueHref = a.getAttribute('href');
-    const buttonSignIn = document.getElementsByTagName('input');
+    const buttonSignIn = document.getElementsByClassName('button');
+    buttonSignIn.hasAttribute('value');
     let valueButton = buttonSignIn.getAttribute('value');
-    if ((hasForm>0) && (hasInputs>=3)) {
-        document.getElementById("validationDiv").innerHTML = "all tests were successfully performed";
+    if (hasForm<=0) {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Form is not found");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
     }
-    else if ((valueHref !== 'register.html') && (valueButton !== 'Sign In')) {
-        document.getElementById("validationDiv").innerHTML = "there were some errors";
+else if (hasInputs.length<3) {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Missing input fields");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
+    }
+ else if (valueHref !== 'register.html'){
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Incorrect href value");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
 }
+else if (valueButton !== 'Sign In') {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Incorrect button content");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
 }
-
+else {
+        var node = document.createElement("p");                 
+        var textnode = document.createTextNode("Validations results: every validation has passed");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
+    }
+}
+validate();
