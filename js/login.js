@@ -1,4 +1,4 @@
-function validate(){
+function validate() {
     let hasForm = document.getElementsByTagName('form');
     let hasInputs = document.getElementsByTagName('input');
     let isRequiredE = document.getElementsByClassName("reqE").required;

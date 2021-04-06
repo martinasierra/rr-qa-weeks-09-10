@@ -1,35 +1,47 @@
 function validate() {
     let hasForm = document.getElementsByTagName('form');
     let hasInputs = document.getElementsByTagName('input');
-    const a = document.querySelector('a');
-    a.hasAttribute('href');
-    let valueHref = a.getAttribute('href');
-    const buttonSubmit = document.getElementsByClassName('button');
-    //buttonSubmit.hasAttribute('value');
-    let valueButton = buttonSubmit.getAttribute('value');
-    if (hasForm<=0) {
-        var node = document.createElement("LI");                 
-        var textnode = document.createTextNode("Form is not found");         
+    let isRequiredE = document.getElementsByClassName("reqE").required;
+    let isRequiredP = document.getElementsByClassName("reqP").required;
+    const buttonReset = document.querySelector('.b-reset');
+    buttonReset.hasAttribute('value');
+    let valueBReset = buttonReset.getAttribute('value');
+    const buttonSubmit = document.querySelector('.b-submit');
+    buttonSubmit.hasAttribute('value');
+    let valueBSubmit = buttonSubmit.getAttribute('value');
+    if (hasForm.length<1) { 
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Validations results: form is not found");         
         node.appendChild(textnode);                             
-        document.getElementById("myList").appendChild(node);  
-    }
-else if (hasInputs.length<5) {
+        document.getElementById("myList").appendChild(node); 
+}   else if (hasInputs.length<6) {
         var node = document.createElement("li");                 
         var textnode = document.createTextNode("Missing input fields");         
         node.appendChild(textnode);                             
-        document.getElementById("myList").appendChild(node);  
-    } 
-else if (valueButton !== 'Submit') {
+        document.getElementById("myList").appendChild(node); 
+}   else if (isRequiredE === false) {
         var node = document.createElement("li");                 
-        var textnode = document.createTextNode("Incorrect button content");         
+        var textnode = document.createTextNode("Email must be required");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node); 
+}   else if (isRequiredP === false) {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Password must be required");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node); 
+}   else if (valueBSubmit !== 'Submit') {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Incorrect Submit button content");         
         node.appendChild(textnode);                             
         document.getElementById("myList").appendChild(node);  
-}
-else {
+}   else if (valueBReset !== 'Reset') {
+        var node = document.createElement("li");                 
+        var textnode = document.createTextNode("Incorrect Reset button content");         
+        node.appendChild(textnode);                             
+        document.getElementById("myList").appendChild(node);  
+}   else {
         var node = document.createElement("li");                 
         var textnode = document.createTextNode("Validations results: every validation has passed");         
         node.appendChild(textnode);                             
-        document.getElementById("myList").appendChild(node);  
-    }
-}
-validate();
+        document.getElementById("myList").appendChild(node); 
+}  }
