@@ -1,4 +1,4 @@
-function validate(){
+function validate() {
     let hasForm = document.getElementsByTagName('form');
     let hasInputs = document.getElementsByTagName('input');
     const a = document.querySelector('a');
@@ -8,7 +8,7 @@ function validate(){
     //buttonSubmit.hasAttribute('value');
     let valueButton = buttonSubmit.getAttribute('value');
     if (hasForm<=0) {
-        var node = document.createElement("li");                 
+        var node = document.createElement("LI");                 
         var textnode = document.createTextNode("Form is not found");         
         node.appendChild(textnode);                             
         document.getElementById("myList").appendChild(node);  
