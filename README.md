@@ -2,4 +2,5 @@
 ### Week 09
 
 #### Resolution to JavaScript exercises
-Javascript functions and DOM
+##### JS functions and DOM
+Create a Login and a Register form and validate their requirements
