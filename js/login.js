@@ -1,13 +1,9 @@
-var myList = document.querySelector('.myList');
 var validationDiv = document.querySelector('.validationDiv')
 
 function formExists() {
 let hasForm = document.getElementsByTagName('form');
-if (hasForm.length<1) { 
-        var node = document.createElement("li");                
-        var textnode = document.createTextNode('Form is not found');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node); 
+if (hasForm.length<1) {               
+        validationDiv.innerHTML += '<p>Form is not found</p>'; 
 } else {
         return true;
 } }
@@ -15,10 +11,7 @@ if (hasForm.length<1) {
 function inputQuantity() {
 let hasInputs = document.getElementsByTagName('input');
 if (hasInputs.length<3) {
-        var node = document.createElement("li");                 
-        var textnode = document.createTextNode('Missing input fields');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node); 
+        validationDiv.innerHTML += '<p>Missing input fields</p>'; 
 } else {
         return true;
 } }
@@ -26,10 +19,7 @@ if (hasInputs.length<3) {
 function emailRequired() {
 let isRequiredE = document.querySelector(".reqE").required;
 if (isRequiredE === false) {
-        var node = document.createElement("li");                 
-        var textnode = document.createTextNode('Email must be required');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node); 
+        validationDiv.innerHTML += '<p>Email must be required</p>';
 } else {
         return true; 
 } }
@@ -37,10 +27,7 @@ if (isRequiredE === false) {
 function passRequired() {
 let isRequiredP = document.querySelector(".reqP").required;
 if (isRequiredP === false) {
-        var node = document.createElement("li");                 
-        var textnode = document.createTextNode('Password must be required');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node); 
+        validationDiv.innerHTML += '<p>Password must be required</p>'; 
 } else {
         return true;
 } }
@@ -50,10 +37,7 @@ const a = document.querySelector('a');
 a.hasAttribute('href');
 let valueHref = a.getAttribute('href');
 if (valueHref !== 'register.html') {
-        var node = document.createElement("li");                 
-        var textnode = document.createTextNode('Incorrect href value');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node);    
+        validationDiv.innerHTML += '<p>Incorrect href value</p>';
 } else {
 return true;
 } }
@@ -63,21 +47,21 @@ const signInButton = document.querySelector('.button');
 signInButton.hasAttribute('value');
 let valueButton = signInButton.getAttribute('value');
 if (valueButton !== 'Sign In') {
-        var node = document.createElement("li");                 
-        var textnode = document.createTextNode('Incorrect button content');         
-        node.appendChild(textnode);                             
-        myList.appendChild(node);  
+        validationDiv.innerHTML += '<p>Incorrect button content</p>';  
 } else {
         return true; 
 } }
-
+    
 function validate() {
-if ((formExists()===true) && (inputQuantity()===true) && (emailRequired()===true) && (passRequired()===true) && (hrefValueRegister()===true) && (buttonContent()===true)){
-        var node = document.createElement("p");                 
-        var textnode = document.createTextNode('Validations results: every validation has passed');         
-        node.appendChild(textnode);                             
-        validationDiv.appendChild(node);
-} }
+        formExists();
+        inputQuantity(),
+        emailRequired();
+        passRequired();
+        hrefValueRegister();
+        buttonContent();    
+if (validationDiv.getElementsByTagName('p').length === 0) {
+        validationDiv.innerHTML += '<p>Validations results: every validation has passed</p>'; 
+} } 
 
 
 
