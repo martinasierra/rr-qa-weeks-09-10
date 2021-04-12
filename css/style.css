@@ -1,5 +1,5 @@
 body {
-    background-color: #f5f4de;
+    background-color: #f5f3d4;
 }
 
 .page {
@@ -13,17 +13,13 @@ header {
     margin: 2rem;
 }
 
-h1, h2, a {
+h1, h2, a, label {
     font-family: Arial, Helvetica, sans-serif;
     color: #19456b;
 }
 
 h2 {
     font-weight: bold;
-}
-
-label {
-    color: #19456b;
 }
 
 a {
@@ -46,10 +42,6 @@ h1 {
     background-color: #e7d9ea;
 }
 
-.email, .pass, .full-name, .c-password, .buttons {
-    margin: 1rem;
-}
-
-.validationDiv {
-    margin: 1rem;
+.email, .pass, .full-name, .c-password, .buttons, .validationDiv, input {
+    margin: 0.5rem;
 }
