@@ -1,28 +1,42 @@
-function validateEmail() {
-    let email = document.getElementById('email');
-    let emailDiv = document.querySelector('.email');
-    email = email.value;
-    atpos = email.indexOf("@");
-    dotpos = email.lastIndexOf(".");
+let emailDiv = document.querySelector('.email');
+let passDiv = document.querySelector('.pass');
+const email = document.querySelector('input[type="email"]');
+const pass = document.querySelector('input[type="password"]');
+
+function validateEmail() {    
+    emailVal = email.value;
+    atpos = emailVal.indexOf("@");
+    dotpos = emailVal.lastIndexOf(".com");
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
         emailDiv.innerHTML += '<p>Email is not valid</p>'; 
      }
 }
 
+function validatePassword() {
+    passVal = pass.value;
+    if (pass.length >= 8) {
+        var low = false;
+        var num = false;        
+        for(let i = 0;i<pass.length;i++)
+        { if(passVal.charCodeAt(i) >= 97 && passVal.charCodeAt(i) <= 122)
+                low = true;
+            else if(passVal.charCodeAt(i) >= 48 && passVal.charCodeAt(i) <= 57)
+                num = true;
+        } }
+        if (low !== true || num !== true)  
+        passDiv.innerHTML += '<p>Password is not valid</p>'; 
+    } 
+
 
 email.addEventListener('blur', validateEmail);
+pass.addEventListener('blur', validatePassword);
+/* email.addEventListener('focus', eraseMessage);
 
-const pwd = document.querySelector('input[type="password"]');
-
-pwd.addEventListener('focus', (e) => {
-    e.target.style.backgroundColor = 'yellow';
-});
-
-
-email.onfocus = function() {
+ function eraseMessage() {
     let emailDiv = document.querySelector('.email');
-    let message = emailDiv.getElementsByTagName('p')
-   if (message.length === 1) {
-    message.style.display = "none";
-   }
-  }
+    if (emailDiv.getElementsByTagName('p').length === 1) {
+        let mailmsg = emailDiv.querySelector('p');
+        mailmsg.style.display = "none";
+    }
+}
+email.addEventListener('focus', eraseMessage); */
