@@ -1,7 +1,6 @@
 var validationDiv = document.querySelector('.validationDiv');
 let emailDiv = document.querySelector('.email');
 let passDiv = document.querySelector('.pass');
-let fullNameDiv = document.querySelector('.full-name');
 const email = document.querySelector('input[type="email"]');
 const pass = document.querySelector('input[name="password"]');
 const submitBtn = document.querySelector('input[type="submit"]');
@@ -66,8 +65,13 @@ async function getUser() {
 submitBtn.onclick = function(event) {
     event.preventDefault();
     if (validateForm() === true) {
-        validationDiv.innerHTML += (`Email: ${email.value}`);
-        validationDiv.innerHTML += (`Password: ${pass.value}`);
+        let pe = document.createElement('p');
+        pe.textContent = (`Email: ${email.value}`);
+        passDiv.appendChild(pe);
+        let pp = document.createElement('p');
+        pp.textContent = (`Password: ${pass.value}`);
+        passDiv.appendChild(pp);
+        validationDiv.style.display = 'block';
     getUser();
     }
 }

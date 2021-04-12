@@ -1,6 +1,6 @@
 const fullName = document.querySelector('input[type="text"]');
+let fullNameDiv = document.querySelector('.full-name');
 const patternFN = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
-//const pass = document.querySelector('input[name="password"]');
 let cPassDiv = document.querySelector('.c-password');
 const confPass = document.querySelector('input[name="c-password"]');
 
@@ -8,22 +8,39 @@ function validateFullName() {
     fnval = fullName.value;
     if (patternFN.test(fnval))
     return true;
-    else
-        fullNameDiv.innerHTML += '<p>Full Name is not valid</p>'; 
-}
+    else {
+        let p = document.createElement('p');
+        p.textContent = 'Full Name is not valid';
+        fullNameDiv.appendChild(p);
+        fullNameDiv.style.color = 'red';
+} }
 
 function validConfirmPass() {
     passVal = pass.value;
     passValConf = confPass.value;
     if (passVal === passValConf) 
         return true; 
-    else 
-        cPassDiv.innerHTML += '<p>Passwords doesn\'t match.</p>';
-         
-}
+    else {
+        let p = document.createElement('p');
+        p.textContent = 'Passwords doesn\'t match';
+        cPassDiv.appendChild(p);
+        cPassDiv.style.color = 'red';       
+} }
 
 fullName.addEventListener('blur',validateFullName);
 confPass.addEventListener('blur', validConfirmPass);
+
+fullName.addEventListener('focus', function () {
+    if (fullNameDiv.getElementsByTagName('p').length === 1) {
+        let fullNameMsg = fullNameDiv.querySelector('p');
+        fullNameMsg.style.display = "none"; }
+  });
+
+  confPass.addEventListener('focus', function () {
+    if (cPassDiv.getElementsByTagName('p').length === 1) {
+        let confPassMsg = cPassDiv.querySelector('p');
+        confPassMsg.style.display = "none"; }
+  });
 
 function validateForm() {
     if ((validateEmail() ===  true) && (validatePassword() === true) && (validateFullName() === true) 
