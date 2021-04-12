@@ -67,10 +67,10 @@ submitBtn.onclick = function(event) {
     if (validateForm() === true) {
         let pe = document.createElement('p');
         pe.textContent = (`Email: ${email.value}`);
-        passDiv.appendChild(pe);
+        validationDiv.appendChild(pe);
         let pp = document.createElement('p');
         pp.textContent = (`Password: ${pass.value}`);
-        passDiv.appendChild(pp);
+        validationDiv.appendChild(pp);
         validationDiv.style.display = 'block';
     getUser();
     }

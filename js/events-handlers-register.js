@@ -51,9 +51,14 @@ function validateForm() {
 submitBtn.onclick = function(event) {
     event.preventDefault();
     if (validateForm() === true) {
-        validationDiv.innerHTML += (`Email: ${email.value}`);
+        let pe = document.createElement('p');
+        pe.textContent = (`Email: ${email.value}`);
+        validationDiv.appendChild(pe);
         validationDiv.innerHTML += (`Full Name: ${fullName.value}`);
-        validationDiv.innerHTML += (`Password: ${pass.value}`);
+        let pp = document.createElement('p');
+        pp.textContent = (`Password: ${pass.value}`);
+        validationDiv.appendChild(pp);
+        validationDiv.style.display = 'block';
         getUser();
     }
 }
