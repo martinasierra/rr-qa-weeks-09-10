@@ -1,4 +1,4 @@
-var validationDiv = document.querySelector('.validationDiv')
+var validationDiv = document.querySelector('.validationDiv');
 
 function formExists() {
 let hasForm = document.getElementsByTagName('form');

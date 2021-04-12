@@ -1,10 +1,10 @@
+var validationDiv = document.querySelector('.validationDiv');
 let emailDiv = document.querySelector('.email');
 let passDiv = document.querySelector('.pass');
 let fullNameDiv = document.querySelector('.full-name');
 const email = document.querySelector('input[type="email"]');
 const pass = document.querySelector('input[name="password"]');
-let cPassDiv = document.querySelector('.c-password');
-const confPass = document.querySelector('input[name="c-password"]');
+const submitBtn = document.querySelector('input[type="submit"]');
 const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 
@@ -15,6 +15,8 @@ function validateEmail() {
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
         emailDiv.innerHTML += '<p>Email is not valid</p>'; 
      }
+     else 
+        return true;
 }
 
 function validatePassword() {
@@ -25,18 +27,9 @@ function validatePassword() {
         passDiv.innerHTML += '<p>Password is not valid</p>'; 
     }
 
-function validConfirmPass() {
-    passVal = pass.value;
-    passValConf = confPass.value;
-    if (passVal !== passValConf) {
-        cPassDiv.innerHTML += '<p>Passwords doesn\'t match.</p>'
-    }
-}
-
-
 email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
-confPass.addEventListener('blur', validConfirmPass);
+
 
 /* email.addEventListener('focus', eraseMessage);
 
@@ -48,4 +41,17 @@ confPass.addEventListener('blur', validConfirmPass);
     }
 }
 email.addEventListener('focus', eraseMessage); */
+
+function validateForm() {
+    if (validateEmail() ===  true && validatePassword() === true)
+    return true;
+}
+
+submitBtn.onclick = function(event) {
+    event.preventDefault();
+    if (validateForm() === true) {
+        validationDiv.innerHTML += (`Email: ${email.value}`);
+        validationDiv.innerHTML += (`Password: ${pass.value}`);
+    }
+}
 
