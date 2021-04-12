@@ -14,6 +14,7 @@ function validateEmail() {
     dotpos = emailVal.lastIndexOf(".com");
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
         emailDiv.innerHTML += '<p>Email is not valid</p>'; 
+        emailDiv.style.color = 'red';
      }
      else 
         return true;
@@ -23,24 +24,26 @@ function validatePassword() {
     passVal = pass.value;
     if (pattern.test(passVal))  
     return true;
-    else
+    else {
         passDiv.innerHTML += '<p>Password is not valid</p>'; 
-    }
+    passDiv.style.color = 'red';
+    } }
 
 email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
 
-
-/* email.addEventListener('focus', eraseMessage);
-
- function eraseMessage() {
-    let emailDiv = document.querySelector('.email');
+email.addEventListener('focus', function () {
     if (emailDiv.getElementsByTagName('p').length === 1) {
         let mailmsg = emailDiv.querySelector('p');
-        mailmsg.style.display = "none";
-    }
-}
-email.addEventListener('focus', eraseMessage); */
+        mailmsg.style.display = "none"; }
+  });
+
+  pass.addEventListener('focus', function () {
+    if (passDiv.getElementsByTagName('p').length === 1) {
+        let passmsg = passDiv.querySelector('p');
+        passmsg.style.display = "none"; }
+  });
+
 
 function validateForm() {
     if (validateEmail() ===  true && validatePassword() === true)

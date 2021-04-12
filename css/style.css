@@ -42,6 +42,8 @@ h1 {
     background-color: #e7d9ea;
 }
 
-.email, .pass, .full-name, .c-password, .buttons, .validationDiv, input {
-    margin: 0.5rem;
+input {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
+/*.email, .pass, .full-name, .c-password, .buttons, .validationDiv,*/
