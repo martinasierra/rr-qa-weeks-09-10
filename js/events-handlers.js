@@ -3,9 +3,8 @@ let passDiv = document.querySelector('.pass');
 let fullNameDiv = document.querySelector('.full-name');
 const email = document.querySelector('input[type="email"]');
 const pass = document.querySelector('input[type="password"]');
-const fullName = document.querySelector('input[type="text"]');
 const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-const patternFN = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
+
 
 function validateEmail() {    
     emailVal = email.value;
@@ -24,18 +23,10 @@ function validatePassword() {
         passDiv.innerHTML += '<p>Password is not valid</p>'; 
     }
 
-function validateFullName() {
-    fnval = fullName.value;
-    if (patternFN.test(fnval))
-    return true;
-    else
-        fullNameDiv.innerHTML += '<p>Full Names is not valid</p>'; 
-}
-
 
 email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
-fullName.addEventListener('blur',validateFullName);
+
 /* email.addEventListener('focus', eraseMessage);
 
  function eraseMessage() {
