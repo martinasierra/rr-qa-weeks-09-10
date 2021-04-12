@@ -12,30 +12,31 @@ function validateFullName() {
         fullNameDiv.innerHTML += '<p>Full Name is not valid</p>'; 
 }
 
-
-
 function validConfirmPass() {
     passVal = pass.value;
     passValConf = confPass.value;
-    if (passVal !== passValConf) {
-        cPassDiv.innerHTML += '<p>Passwords doesn\'t match.</p>'
-    }
+    if (passVal === passValConf) 
+        return true; 
+    else 
+        cPassDiv.innerHTML += '<p>Passwords doesn\'t match.</p>';
+         
 }
-
 
 fullName.addEventListener('blur',validateFullName);
 confPass.addEventListener('blur', validConfirmPass);
 
-
 function validateForm() {
-    if (validateEmail() ===  true && validatePassword() === true)
+    if ((validateEmail() ===  true) && (validatePassword() === true) && (validateFullName() === true) 
+    && (validConfirmPass() === true)) {
     return true;
-}
+} }
 
 submitBtn.onclick = function(event) {
     event.preventDefault();
     if (validateForm() === true) {
         validationDiv.innerHTML += (`Email: ${email.value}`);
+        validationDiv.innerHTML += (`Full Name: ${fullName.value}`);
         validationDiv.innerHTML += (`Password: ${pass.value}`);
+        getUser();
     }
 }
