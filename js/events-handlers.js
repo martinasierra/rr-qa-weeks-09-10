@@ -13,7 +13,9 @@ function validateEmail() {
     atpos = emailVal.indexOf("@");
     dotpos = emailVal.lastIndexOf(".com");
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
-        emailDiv.innerHTML += '<p>Email is not valid</p>'; 
+        let p = document.createElement('p');
+        p.textContent = 'Email is not valid';
+        emailDiv.appendChild(p);
         emailDiv.style.color = 'red';
      }
      else 
@@ -25,8 +27,10 @@ function validatePassword() {
     if (pattern.test(passVal))  
     return true;
     else {
-        passDiv.innerHTML += '<p>Password is not valid</p>'; 
-    passDiv.style.color = 'red';
+        let p = document.createElement('p');
+        p.textContent = 'Password is not valid';
+        passDiv.appendChild(p);
+        passDiv.style.color = 'red';
     } }
 
 email.addEventListener('blur', validateEmail);
