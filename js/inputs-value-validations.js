@@ -1,8 +1,11 @@
 let emailDiv = document.querySelector('.email');
 let passDiv = document.querySelector('.pass');
+let fullNameDiv = document.querySelector('.full-name');
 const email = document.querySelector('input[type="email"]');
 const pass = document.querySelector('input[type="password"]');
-const pattern = '^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'
+const fullName = document.querySelector('input[type="text"]');
+const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const patternFN = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
 
 function validateEmail() {    
     emailVal = email.value;
@@ -15,22 +18,24 @@ function validateEmail() {
 
 function validatePassword() {
     passVal = pass.value;
-    if (pass.length >= 8) {
-        var low = false;
-        var num = false;        
-        for(let i = 0;i<pass.length;i++) {
-            if(passVal.charCodeAt(i) >= 97 && passVal.charCodeAt(i) <= 122)
-                low = true;
-            else if(passVal.charCodeAt(i) >= 48 && passVal.charCodeAt(i) <= 57)
-                num = true;
-        } }
-        if (low !== true || num !== true || pass.length <8 )  
+    if (pattern.test(passVal))  
+    return true;
+    else
         passDiv.innerHTML += '<p>Password is not valid</p>'; 
-    } 
+    }
+
+function validateFullName() {
+    fnval = fullName.value;
+    if (patternFN.test(fnval))
+    return true;
+    else
+        fullNameDiv.innerHTML += '<p>Full Names is not valid</p>'; 
+}
 
 
 email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
+fullName.addEventListener('blur',validateFullName);
 /* email.addEventListener('focus', eraseMessage);
 
  function eraseMessage() {
