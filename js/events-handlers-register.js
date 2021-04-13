@@ -48,6 +48,15 @@ function validateForm() {
     return true;
 } }
 
+async function getUser() {
+    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
+    .then(function(response){
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch()
+}
+
 submitBtn.onclick = function(event) {
     event.preventDefault();
     if (validateForm() === true) {
@@ -62,3 +71,4 @@ submitBtn.onclick = function(event) {
         getUser();
     }
 }
+

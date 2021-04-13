@@ -4,13 +4,13 @@ let passDiv = document.querySelector('.pass');
 const email = document.querySelector('input[type="email"]');
 const pass = document.querySelector('input[name="password"]');
 const submitBtn = document.querySelector('input[type="submit"]');
-const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const patternPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 
 function validateEmail() {    
     emailVal = email.value;
     atpos = emailVal.indexOf("@");
-    dotpos = emailVal.lastIndexOf(".com");
+    dotpos = emailVal.lastIndexOf(".");
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
         let p = document.createElement('p');
         p.textContent = 'Email is not valid';
@@ -23,7 +23,7 @@ function validateEmail() {
 
 function validatePassword() {
     passVal = pass.value;
-    if (pattern.test(passVal))  
+    if (patternPass.test(passVal))  
     return true;
     else {
         let p = document.createElement('p');
@@ -49,7 +49,7 @@ email.addEventListener('focus', function () {
 
 
 function validateForm() {
-    if (validateEmail() ===  true && validatePassword() === true)
+    if (validateEmail() === true && validatePassword() === true)
     return true;
 }
 
