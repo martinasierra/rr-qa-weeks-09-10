@@ -4,7 +4,7 @@ body {
 
 .page {
     text-align: center;
-    width: 80%;
+    width: 50%;
     margin: 4rem auto;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -13,12 +13,17 @@ header {
     margin: 2rem;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
 h1, h2, a, label {
     font-family: Arial, Helvetica, sans-serif;
     color: #19456b;
 }
 
 h2 {
+    font-size: larger;
     font-weight: bold;
 }
 
@@ -26,24 +31,37 @@ a {
     color: #ff7a00;
 }
 
-h1 {
-    font-size: 3rem;
-}
-
 .form-container{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 1rem;
-    margin: 2rem;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+    margin: 2rem;
     border: 1px solid #11698e;
     background-color: #e7d9ea;
 }
 
-input {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+
+.email, .pass, .full-name, .c-password, .buttons .validationDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
 }
-/*.email, .pass, .full-name, .c-password, .buttons, .validationDiv,*/
+
+form {
+    margin-top: 1rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.b-reset, .b-submit {
+    margin-top: 1rem;
+    padding: 0.3rem 1rem;
+}
+
