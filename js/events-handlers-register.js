@@ -1,12 +1,8 @@
 const fullName = document.querySelector('input[type="text"]');
 let fullNameDiv = document.querySelector('.full-name');
-const patternFN = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
+const patternFN = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
 let cPassDiv = document.querySelector('.c-password');
 const confPass = document.querySelector('input[name="c-password"]');
-
-var data = {email: email.value,
-            fullName: fullName.value,
-            password: pass.value};
 
 function validateFullName() {
     fnval = fullName.value;
@@ -55,7 +51,10 @@ function validateForm() {
 function registerUser() {
     fetch('http://localhost:4000/register', {
         method: 'POST', 
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+            email: email.value,
+            fullName: fullName.value,
+            password: pass.value}),
         headers:{
             Accept: 'application/json',
             'Content-Type': 'application/json'
