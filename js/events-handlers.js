@@ -53,13 +53,18 @@ function validateForm() {
     return true;
 }
 
-async function getUser() {
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-    .then(function(response){
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch()
+function logUser() {
+    fetch('http://localhost:4000/login', {
+        method: 'PUT', 
+        body: JSON.stringify({email: email.value,
+            password: pass.value}), 
+        headers:{
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+  }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
 }
 
 submitBtn.onclick = function(event) {
@@ -72,7 +77,7 @@ submitBtn.onclick = function(event) {
         pp.textContent = (`Password: ${pass.value}`);
         validationDiv.appendChild(pp);
         validationDiv.style.display = 'block';
-    getUser();
+    logUser();
     }
 }
 

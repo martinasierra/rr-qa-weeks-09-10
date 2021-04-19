@@ -4,6 +4,10 @@ const patternFN = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
 let cPassDiv = document.querySelector('.c-password');
 const confPass = document.querySelector('input[name="c-password"]');
 
+var data = {email: email.value,
+            fullName: fullName.value,
+            password: pass.value};
+
 function validateFullName() {
     fnval = fullName.value;
     if (patternFN.test(fnval))
@@ -48,13 +52,17 @@ function validateForm() {
     return true;
 } }
 
-async function getUser() {
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-    .then(function(response){
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch()
+function registerUser() {
+    fetch('http://localhost:4000/register', {
+        method: 'POST', 
+        body: JSON.stringify(data),
+        headers:{
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', response));
 }
 
 submitBtn.onclick = function(event) {
@@ -68,7 +76,7 @@ submitBtn.onclick = function(event) {
         pp.textContent = (`Password: ${pass.value}`);
         validationDiv.appendChild(pp);
         validationDiv.style.display = 'block';
-        getUser();
+        registerUser();
     }
 }
 
