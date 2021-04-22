@@ -37,13 +37,13 @@ email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
 
 email.addEventListener('focus', function () {
-    if (emailDiv.getElementsByTagName('p').length === 1) {
+    if (emailDiv.getElementsByTagName('p').length >= 1) {
         let mailmsg = emailDiv.querySelector('p');
         emailDiv.removeChild(mailmsg); }
   });
 
   pass.addEventListener('focus', function () {
-    if (passDiv.getElementsByTagName('p').length === 1) {
+    if (passDiv.getElementsByTagName('p').length >= 1) {
         let passmsg = passDiv.querySelector('p');
         passDiv.removeChild(passmsg); }
     });
