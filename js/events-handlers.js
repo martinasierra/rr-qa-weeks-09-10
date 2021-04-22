@@ -25,7 +25,8 @@ function validatePassword() {
     passVal = pass.value;
     if (patternPass.test(passVal))  
     return true;
-    else {
+    else 
+     {
         let p = document.createElement('p');
         p.textContent = 'Password is not valid';
         passDiv.appendChild(p);
@@ -38,14 +39,14 @@ pass.addEventListener('blur', validatePassword);
 email.addEventListener('focus', function () {
     if (emailDiv.getElementsByTagName('p').length === 1) {
         let mailmsg = emailDiv.querySelector('p');
-        mailmsg.style.display = "none"; }
+        emailDiv.removeChild(mailmsg); }
   });
 
   pass.addEventListener('focus', function () {
     if (passDiv.getElementsByTagName('p').length === 1) {
         let passmsg = passDiv.querySelector('p');
-        passmsg.style.display = "none"; }
-  });
+        passDiv.removeChild(passmsg); }
+    });
 
 
 function validateForm() {
@@ -56,13 +57,14 @@ function validateForm() {
 function logUser() {
     fetch('http://localhost:4000/login', {
         method: 'PUT', 
-        body: JSON.stringify({email: email.value,
-            password: pass.value}), 
         headers:{
             Accept: 'application/json',
-            'Content-Type': 'application/json'
-  }
-    }).then(res => res.json())
+            'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            email: email.value,
+            password: pass.value})
+    })
+    .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
 }

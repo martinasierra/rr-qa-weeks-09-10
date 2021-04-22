@@ -33,13 +33,14 @@ confPass.addEventListener('blur', validConfirmPass);
 fullName.addEventListener('focus', function () {
     if (fullNameDiv.getElementsByTagName('p').length === 1) {
         let fullNameMsg = fullNameDiv.querySelector('p');
-        fullNameMsg.style.display = "none"; }
+        fullNameDiv.removeChild(fullNameMsg); }
   });
 
   confPass.addEventListener('focus', function () {
     if (cPassDiv.getElementsByTagName('p').length === 1) {
         let confPassMsg = cPassDiv.querySelector('p');
-        confPassMsg.style.display = "none"; }
+        cPassDiv.removeChild(confPassMsg);
+         }
   });
 
 function validateForm() {
