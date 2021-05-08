@@ -7,3 +7,7 @@ Create a Login and a Register form and validate their requirements
 
 #### Week 10
 ##### Events handlers
+
+https://martinasierra.github.io/rr-qa-weeks-09-10/login.html
+
+https://martinasierra.github.io/rr-qa-weeks-09-10/register.html
