@@ -3,11 +3,10 @@
 * that is shared across all page objects
 */
 export default class Page {
-    /**
-    * Opens a sub page of the page
-    * @param path path of the sub page (e.g. /path/to/page.html)
-    */
+  
+   
+
     open (path) {
-        return browser.url(`https://martinasierra.github.io/rr-qa-weeks-09-10/${path}`)
+        return browser.url(`file:///C:/Users/Martina/Desktop/RR_BAQA/rr-qa-weeks-09-10/${path}`)
     }
 }

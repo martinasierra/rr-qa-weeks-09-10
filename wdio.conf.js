@@ -142,6 +142,8 @@ exports.config = {
     //
     // Options to be passed to Jasmine.
     jasmineOpts: {
+        // Babel setup
+        helpers: [require.resolve('@babel/register')],
         // Jasmine default timeout
         defaultTimeoutInterval: 60000,
         //

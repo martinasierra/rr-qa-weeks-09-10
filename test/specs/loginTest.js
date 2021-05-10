@@ -4,7 +4,7 @@ describe('Login Form', () => {
    
     describe('Email Input'), () => {
    
-        it('wrong email', () => {
+        it('should show invalid mail message', () => {
             LoginPage.open();
             LoginPage.inputEmail.setValue('hola');
             browser.keys("\uE004");
@@ -12,7 +12,7 @@ describe('Login Form', () => {
             expect(LoginPage.emailError).toBeExisting();
         });
     
-        it('right email', () => {
+        it('should\'t show any error message', () => {
             LoginPage.open();
             LoginPage.inputEmail.setValue('email@jasper.info');
             browser.keys("\uE004");
@@ -23,7 +23,7 @@ describe('Login Form', () => {
 
     describe('Password Input'), () => {
    
-        it('wrong pass', () => {
+        it('should show invalid password message', () => {
             LoginPage.open();
             browser.pause(2000);
             LoginPage.inputPassword.setValue('1234');
@@ -32,7 +32,7 @@ describe('Login Form', () => {
             expect(LoginPage.passError).toBeExisting();
         });
 
-        it('right pass', () => {
+        it('should\'t show any error message', () => {
             LoginPage.open();
             browser.pause(2000);
             LoginPage.inputPassword.setValue('0987ytre');
@@ -45,7 +45,7 @@ describe('Login Form', () => {
 
     describe('Submit Button'), () => {
 
-        it('should show sign with valid email and password when signing in ', () => {
+        it('should show message with valid email and password when signing in ', () => {
             LoginPage.open();
             LoginPage.inputEmail.setValue('hola@gmail.com');
             LoginPage.inputPassword.setValue('1234rtyu');
@@ -60,7 +60,7 @@ describe('Login Form', () => {
 
     describe('Register link'), () => {
 
-        it('should redirect to register page', () => {
+        it('should redirect to Register page', () => {
             LoginPage.otherFormLink.click();
             browser.pause (2000);
             expect(LoginPage.formTitle.getText()).toEqual('Create an account');
