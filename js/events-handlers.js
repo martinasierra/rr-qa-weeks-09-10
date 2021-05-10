@@ -9,14 +9,15 @@ let flag = true;
 function validateEmail() {    
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value))
     return true;
-    else
-  { if (flag === true) {
+    else {
+    if (flag === true) {
         let p = document.createElement('p');
         p.textContent = 'Email is not valid';
         emailDiv.appendChild(p);
         emailDiv.style.color = 'red';
         flag = false;
-}}} 
+}   
+    }};
 
 function validatePassword() {
     if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(pass.value))  
@@ -27,7 +28,7 @@ function validatePassword() {
         p.textContent = 'Password is not valid';
         passDiv.appendChild(p);
         passDiv.style.color = 'red';
-    } }
+    } };
 
 email.addEventListener('blur', validateEmail);
 pass.addEventListener('blur', validatePassword);
@@ -48,7 +49,7 @@ email.addEventListener('focus', function () {
 function validateForm() {
     if (validateEmail() === true && validatePassword() === true)
     return true;
-}
+};
 
 function logUser() {
     fetch('http://localhost:4000/login', {
@@ -63,7 +64,7 @@ function logUser() {
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
-}
+};
 
 submitBtn.onclick = function(event) {
     event.preventDefault();
@@ -76,6 +77,6 @@ submitBtn.onclick = function(event) {
         validationDiv.appendChild(pp);
         validationDiv.style.display = 'block';
     logUser();
-    }
-}
+    };
+};
 
