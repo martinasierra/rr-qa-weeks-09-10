@@ -44,7 +44,7 @@ a {
 }
 
 
-.email, .pass, .full-name, .c-password, .buttons .validationDiv {
+.email, .pass, .fullName, .cPassword, .buttons .validationDiv {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
