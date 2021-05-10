@@ -1,29 +1,25 @@
 var validationDiv = document.querySelector('.validationDiv');
 let emailDiv = document.querySelector('.email');
 let passDiv = document.querySelector('.pass');
-const email = document.querySelector('input[type="email"]');
+const email = document.querySelector('input[name="email"]');
 const pass = document.querySelector('input[name="password"]');
 const submitBtn = document.querySelector('input[type="submit"]');
-const patternPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
+let flag = true;
 
 function validateEmail() {    
-    emailVal = email.value;
-    atpos = emailVal.indexOf("@");
-    dotpos = emailVal.lastIndexOf(".");
-    if (atpos < 1 || ( dotpos - atpos < 2 )) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value))
+    return true;
+    else
+  { if (flag === true) {
         let p = document.createElement('p');
         p.textContent = 'Email is not valid';
         emailDiv.appendChild(p);
         emailDiv.style.color = 'red';
-     }
-     else 
-        return true;
-}
+        flag = false;
+}}} 
 
 function validatePassword() {
-    passVal = pass.value;
-    if (patternPass.test(passVal))  
+    if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(pass.value))  
     return true;
     else 
      {
@@ -38,7 +34,7 @@ pass.addEventListener('blur', validatePassword);
 
 email.addEventListener('focus', function () {
     if (emailDiv.getElementsByTagName('p').length >= 1) {
-        let mailmsg = emailDiv.querySelector('p');
+        let mailmsg = emailDiv.getElementsByTagName('p');
         emailDiv.removeChild(mailmsg); }
   });
 
