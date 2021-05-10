@@ -1,23 +1,22 @@
-import Page from './page'
+import Page from './page';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () { return $('#username') }
-    get inputPassword () { return $('#password') }
-    get btnSubmit () { return $('button[type="submit"]') }
+    get inputEmail () { return $('input[type="email"]') }
+    get inputPassword () { return $('[type="password"]') }
+    get btnSubmit () { return $('input[type="submit"]') }    
+    get pEmail () { return $$('.validationDiv p')[0] }
+    get pPassword () { return $$('.validationDiv p')[1] }
+    get otherFormLink () { return $('a') }
+    get formTitle () { return $('h2')}
+    get emailError () { return $('.email p')}
+    get passError () { return $('.pass p')}
 
-   
-
-    /**
-     * overwrite specifc options to adapt it to page object
-     */
     open () {
-        return super.open('login');
+        return super.open('login.html');
     }
 }
 
