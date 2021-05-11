@@ -63,11 +63,10 @@ describe('Login Form', () => {
         it('should redirect to Register page', () => {
             LoginPage.otherFormLink.click();
             browser.pause (2000);
-            expect(LoginPage.formTitle.getText()).toEqual('Create an account');
+            expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/register.html');
         });
     
     });
-
 
    
 });

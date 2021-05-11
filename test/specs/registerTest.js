@@ -8,7 +8,7 @@ describe('Register Form', () => {
             RegisterPage.open();
             RegisterPage.inputEmail.setValue('hola');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.emailError).toBeExisting();
         });
     
@@ -16,7 +16,7 @@ describe('Register Form', () => {
             RegisterPage.open();
             RegisterPage.inputEmail.setValue('email@jasper.info');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.emailError).not.toBeExisting();
         });
     });
@@ -25,10 +25,10 @@ describe('Register Form', () => {
 
         it('should show invalid full name message', () => {
             RegisterPage.open();
-            browser.pause(2000);
+            browser.pause(1000);
             RegisterPage.inputFullName.setValue('Jason');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.FNError).toBeExisting();
         })
 
@@ -67,21 +67,19 @@ describe('Register Form', () => {
     describe('Confirm Password Input', () => {
    
         it('should show invalid password message', () => {
-            RegisterPage.open();
             browser.pause(2000);
-            RegisterPage.inputConfPassword.setValue('abcd');
-            browser.keys("\uE004");
-            browser.pause(2000);
-            expect(RegisterPage.CPassError).toBeExisting();
-        });
-
-        it('should\'t show any error message', () => {
-            RegisterPage.open();
-            browser.pause(2000);
-            RegisterPage.inputConfPassword.setValue('0987ytre');
+            RegisterPage.inputConfPass.setValue('0987ytre');
             browser.keys("\uE004");
             browser.pause(2000);
             expect(RegisterPage.CPassError).not.toBeExisting();
+        });
+       
+        it('should show invalid password message', () => {
+            browser.pause(2000);
+            RegisterPage.inputConfPass.setValue('abcd');
+            browser.keys("\uE004");
+            browser.pause(2000);
+            expect(RegisterPage.CPassError).toBeExisting();
         });
 
     });
@@ -91,7 +89,7 @@ describe('Register Form', () => {
         it('should redirect to Login page', () => {
             RegisterPage.otherFormLink.click();
             browser.pause (2000);
-            expect(RegisterPage.formTitle.getText()).toEqual('Sign In');
+            expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/login.html');
         });
     })
 });
