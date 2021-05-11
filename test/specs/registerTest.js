@@ -34,7 +34,7 @@ describe('Register Form', () => {
 
         it('should\'t show any error message', () => {
             RegisterPage.open();
-            browser.pause(2000);
+            browser.pause(1000);
             RegisterPage.inputFullName.setValue('Jason James');
             browser.keys("\uE004");
             browser.pause(2000);
@@ -46,7 +46,7 @@ describe('Register Form', () => {
    
         it('should show invalid password message', () => {
             RegisterPage.open();
-            browser.pause(2000);
+            browser.pause(1000);
             RegisterPage.inputPassword.setValue('abcd');
             browser.keys("\uE004");
             browser.pause(2000);
@@ -55,7 +55,7 @@ describe('Register Form', () => {
 
         it('should\'t show any error message', () => {
             RegisterPage.open();
-            browser.pause(2000);
+            browser.pause(1000);
             RegisterPage.inputPassword.setValue('0987ytre');
             browser.keys("\uE004");
             browser.pause(2000);
@@ -91,7 +91,42 @@ describe('Register Form', () => {
             browser.pause (2000);
             expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/login.html');
         });
-    })
+    });
+
+    describe('Reset Button', () => {
+
+        it('should clear all fields', () => {
+            RegisterPage.open();
+            RegisterPage.inputEmail.setValue('hola@martina.net');
+            RegisterPage.inputFullName.setValue('Martina ');
+            RegisterPage.inputPassword.setValue('0987ytre');
+            RegisterPage.inputConfPass.setValue('0987ytre');
+            RegisterPage.btnReset.click();
+            browser.pause(2000);
+            expect(RegisterPage.inputEmail).toHaveText('');
+            expect(RegisterPage.inputFullName).toHaveText('');
+            expect(RegisterPage.inputPassword).toHaveText('');
+            expect(RegisterPage.inputConfPass).toHaveText('');
+            
+        });
+    });
+
+
+    describe('Submit Button', () => {
+
+        it('should show message with valid email, full name and password when registering in ', () => {
+            LoginPage.open();
+            RegisterPage.inputEmail.setValue('don@draper.net');
+            RegisterPage.inputFullName.setValue('Don Draper');
+            RegisterPage.inputPassword.setValue('0987ytre');
+            RegisterPage.inputConfPass.setValue('0987ytre');
+            RegisterPage.btnSubmit.click();
+            expect(LoginPage.pEmail).toHaveText('Email: don@draper.net');
+            expect(LoginPage.pFullName).toHaveText('Full Name: Don Draper');
+            expect(LoginPage.pPassword).toHaveText('Password: 0987ytre');
+        });
+
+    }); 
 });
 
 

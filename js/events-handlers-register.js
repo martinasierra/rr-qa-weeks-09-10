@@ -72,7 +72,9 @@ submitBtn.onclick = function(event) {
         let pe = document.createElement('p');
         pe.textContent = (`Email: ${email.value}`);
         validationDiv.appendChild(pe);
-        validationDiv.innerHTML += (`Full Name: ${fullName.value}`);
+        let pfn = document.createElement('p');
+        pfn.textContent = (`Full Name: ${fullName.value}`);
+        validationDiv.appendChild(pfn);
         let pp = document.createElement('p');
         pp.textContent = (`Password: ${pass.value}`);
         validationDiv.appendChild(pp);

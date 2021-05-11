@@ -8,7 +8,9 @@ class RegisterPage extends Page {
     get inputConfPass () { return $('[name="cPassword"]')}
     get CPassError () { return $('.cPassword p')}
     get btnReset () { return $('[name="reset"]') } 
-
+    get pFullName () { return $('.validationDiv p')[1]}
+    get pEmail () { return $$('.validationDiv p')[0] }
+    get pPassword () { return $$('.validationDiv p')[2]} 
 
     open () {
         return super.open('register.html');
