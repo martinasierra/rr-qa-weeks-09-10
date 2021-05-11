@@ -23,7 +23,7 @@ function validConfirmPass() {
         return true; 
     else {
         let p = document.createElement('p');
-        p.textContent = 'Passwords doesn\'t match';
+        p.textContent = 'Passwords don\'t match';
         cPassDiv.appendChild(p);
         cPassDiv.style.color = 'red';       
 } }
