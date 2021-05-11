@@ -74,7 +74,7 @@ describe('Register Form', () => {
             expect(RegisterPage.CPassError).not.toBeExisting();
         });
        
-        it('should show invalid password message', () => {
+        it('should show passwords do not message', () => {
             browser.pause(2000);
             RegisterPage.inputConfPass.setValue('abcd');
             browser.keys("\uE004");
@@ -115,15 +115,15 @@ describe('Register Form', () => {
     describe('Submit Button', () => {
 
         it('should show message with valid email, full name and password when registering in ', () => {
-            LoginPage.open();
+            RegisterPage.open();
             RegisterPage.inputEmail.setValue('don@draper.net');
             RegisterPage.inputFullName.setValue('Don Draper');
             RegisterPage.inputPassword.setValue('0987ytre');
             RegisterPage.inputConfPass.setValue('0987ytre');
             RegisterPage.btnSubmit.click();
-            expect(LoginPage.pEmail).toHaveText('Email: don@draper.net');
-            expect(LoginPage.pFullName).toHaveText('Full Name: Don Draper');
-            expect(LoginPage.pPassword).toHaveText('Password: 0987ytre');
+            expect(RegisterPage.pEmail).toHaveText('Email: don@draper.net');
+            expect(RegisterPage.pFullName).toHaveText('Full Name: Don Draper');
+            expect(RegisterPage.pPassword).toHaveText('Password: 0987ytre');
         });
 
     }); 
