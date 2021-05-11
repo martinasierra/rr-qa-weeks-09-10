@@ -2,7 +2,7 @@ import LoginPage from '../pageobjects/login.page';
 
 describe('Login Form', () => {
    
-    describe('Email Input'), () => {
+    describe('Email Input', () => {
    
         it('should show invalid mail message', () => {
             LoginPage.open();
@@ -19,9 +19,9 @@ describe('Login Form', () => {
             browser.pause(2000);
             expect(LoginPage.emailError).not.toBeExisting();
         });
-    };
+    });
 
-    describe('Password Input'), () => {
+    describe('Password Input', () => {
    
         it('should show invalid password message', () => {
             LoginPage.open();
@@ -41,9 +41,9 @@ describe('Login Form', () => {
             expect(LoginPage.passError).not.toBeExisting();
         });
 
-    };
+    });
 
-    describe('Submit Button'), () => {
+    describe('Submit Button', () => {
 
         it('should show message with valid email and password when signing in ', () => {
             LoginPage.open();
@@ -56,9 +56,9 @@ describe('Login Form', () => {
             expect(LoginPage.pPassword).toHaveText('Password: 1234rtyu');
         });
 
-    };
+    });
 
-    describe('Register link'), () => {
+    describe('Register link', () => {
 
         it('should redirect to Register page', () => {
             LoginPage.otherFormLink.click();
@@ -66,7 +66,7 @@ describe('Login Form', () => {
             expect(LoginPage.formTitle.getText()).toEqual('Create an account');
         });
     
-    };
+    });
 
 
    

@@ -2,7 +2,7 @@ import RegisterPage from '../pageobjects/register.page'
 
 describe('Register Form', () => {
     
-    describe('Email Input'), () => {
+    describe('Email Input', () => {
    
         it('should show invalid mail message', () => {
             RegisterPage.open();
@@ -19,9 +19,9 @@ describe('Register Form', () => {
             browser.pause(2000);
             expect(RegisterPage.emailError).not.toBeExisting();
         });
-    };
+    });
  
-    describe('Full Name input'), () => {
+    describe('Full Name input', () => {
 
         it('should show invalid full name message', () => {
             RegisterPage.open();
@@ -40,9 +40,9 @@ describe('Register Form', () => {
             browser.pause(2000);
             expect(RegisterPage.FNError).not.toBeExisting();
         });
-    };
+    });
 
-    describe('Password Input'), () => {
+    describe('Password Input', () => {
    
         it('should show invalid password message', () => {
             RegisterPage.open();
@@ -62,9 +62,9 @@ describe('Register Form', () => {
             expect(RegisterPage.passError).not.toBeExisting();
         });
 
-    };
+    });
 
-    describe('Confirm Password Input'), () => {
+    describe('Confirm Password Input', () => {
    
         it('should show invalid password message', () => {
             RegisterPage.open();
@@ -84,16 +84,16 @@ describe('Register Form', () => {
             expect(RegisterPage.CPassError).not.toBeExisting();
         });
 
-    };
+    });
 
-    describe('Login link'), () => {
+    describe('Login link', () => {
        
         it('should redirect to Login page', () => {
             RegisterPage.otherFormLink.click();
             browser.pause (2000);
             expect(RegisterPage.formTitle.getText()).toEqual('Sign In');
         });
-    }
+    })
 });
 
 

@@ -13,7 +13,8 @@ class RegisterPage extends Page {
     get CPassError () { return $('.fullName p')}
     get btnReset () { return $('input[name="reset"]') } 
     get otherFormLink () { return $('a') }
-
+    get formTitle () { return $('h2')}
+    
     open () {
         return super.open('register.html');
     }
