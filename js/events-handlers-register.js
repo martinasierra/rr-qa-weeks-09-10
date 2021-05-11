@@ -1,5 +1,5 @@
 const fullName = document.querySelector('input[type="text"]');
-let fullNameDiv = document.querySelector('.full-name');
+let fullNameDiv = document.querySelector('.fullName');
 const patternFN = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
 let cPassDiv = document.querySelector('.cPassword');
 const confPass = document.querySelector('input[name="cPassword"]');
