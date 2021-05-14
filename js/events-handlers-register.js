@@ -84,8 +84,13 @@ submitBtn.onclick = function(event) {
 }
 
 resetBtn.onclick = function() {
-    cPassDiv.removeChild(cPassDiv.querySelector('p'));
-    emailDiv.removeChild(emailDiv.querySelector('p'));
-    passDiv.removeChild(passDiv.querySelector('p'));
-    fullNameDiv.removeChild(fullNameDiv.querySelector('p'));
+   if (validationDiv.getElementsByTagName('p').length > 0) {
+    validationDiv.style.display = 'none';
+   }
+   else {
+    cPassDiv.removeChild(cPassDiv.lastChild);
+    emailDiv.removeChild(emailDiv.lastChild);
+    passDiv.removeChild(passDiv.lastChild);
+    fullNameDiv.removeChild(fullNameDiv.lastChild);
+   }
 }

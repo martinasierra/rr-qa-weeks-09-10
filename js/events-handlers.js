@@ -12,7 +12,7 @@ function validateEmail() {
     else {
     if (flag === true) {
         let p = document.createElement('p');
-        p.textContent = 'Email is not valid';
+        p.textContent = 'Email must contain "@" and "."';
         emailDiv.appendChild(p);
         emailDiv.style.color = 'red';
         flag = false;
@@ -25,7 +25,7 @@ function validatePassword() {
     else 
      {
         let p = document.createElement('p');
-        p.textContent = 'Password is not valid';
+        p.textContent = 'Password must contain 8 characters';
         passDiv.appendChild(p);
         passDiv.style.color = 'red';
     } };
@@ -35,7 +35,7 @@ pass.addEventListener('blur', validatePassword);
 
 email.addEventListener('focus', function () {
     if (emailDiv.getElementsByTagName('p').length >= 1) {
-        let mailmsg = emailDiv.getElementsByTagName('p');
+        let mailmsg = emailDiv.querySelector('p');
         emailDiv.removeChild(mailmsg); }
   });
 
