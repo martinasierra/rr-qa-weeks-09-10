@@ -77,6 +77,11 @@ submitBtn.onclick = function(event) {
         validationDiv.appendChild(pp);
         validationDiv.style.display = 'block';
     logUser();
-    };
+    }
+    else {
+        let completeForm = document.createElement('p');
+        completeForm.textContent = ('Please complete the form with valid info.');
+        validationDiv.appendChild(completeForm);
+}
 };
 
