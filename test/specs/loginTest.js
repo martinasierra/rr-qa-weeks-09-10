@@ -54,6 +54,17 @@ describe('Login Form', () => {
             expect(LoginPage.pPassword).toHaveText('Password: 1234rtyu');
         });
 
+        it('should show Please complete the form message when signing in ', () => {
+            LoginPage.open();
+            LoginPage.inputEmail.setValue('');
+            LoginPage.inputPassword.setValue('');
+            browser.keys("\uE004");
+            browser.keys("\uE007");
+            browser.pause(1000);
+            expect(LoginPage.emailError).toBeExisting();
+            expect(LoginPage.completeForm).toHaveText('Please complete the form with valid information');
+        });
+
     });
 
     describe('Register link', () => {
