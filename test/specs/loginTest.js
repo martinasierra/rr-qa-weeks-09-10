@@ -6,9 +6,9 @@ describe('Login Form', () => {
    
         it('should show invalid mail message', () => {
             LoginPage.open();
-            LoginPage.inputEmail.setValue('hola');
+            LoginPage.inputEmail.setValue('hello');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(LoginPage.emailError).toBeExisting();
         });
     
@@ -16,7 +16,7 @@ describe('Login Form', () => {
             LoginPage.open();
             LoginPage.inputEmail.setValue('email@jasper.info');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(LoginPage.emailError).not.toBeExisting();
         });
     });
@@ -25,19 +25,17 @@ describe('Login Form', () => {
    
         it('should show invalid password message', () => {
             LoginPage.open();
-            browser.pause(2000);
             LoginPage.inputPassword.setValue('1234');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(LoginPage.passError).toBeExisting();
         });
 
         it('should\'t show any error message', () => {
             LoginPage.open();
-            browser.pause(2000);
             LoginPage.inputPassword.setValue('0987ytre');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(LoginPage.passError).not.toBeExisting();
         });
 
@@ -47,12 +45,12 @@ describe('Login Form', () => {
 
         it('should show message with valid email and password when signing in ', () => {
             LoginPage.open();
-            LoginPage.inputEmail.setValue('hola@gmail.com');
+            LoginPage.inputEmail.setValue('hello@gmail.com');
             LoginPage.inputPassword.setValue('1234rtyu');
             browser.keys("\uE004");
             browser.keys("\uE007");
-            browser.pause(2000);
-            expect(LoginPage.pEmail).toHaveText('Email: hola@gmail.com');
+            browser.pause(1000);
+            expect(LoginPage.pEmail).toHaveText('Email: hello@gmail.com');
             expect(LoginPage.pPassword).toHaveText('Password: 1234rtyu');
         });
 
@@ -62,7 +60,7 @@ describe('Login Form', () => {
 
         it('should redirect to Register page', () => {
             LoginPage.otherFormLink.click();
-            browser.pause (2000);
+            browser.pause (1000);
             expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/register.html');
         });
     
