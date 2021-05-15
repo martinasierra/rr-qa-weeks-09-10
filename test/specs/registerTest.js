@@ -6,7 +6,7 @@ describe('Register Form', () => {
    
         it('should show invalid mail message', () => {
             RegisterPage.open();
-            RegisterPage.inputEmail.setValue('hola');
+            RegisterPage.inputEmail.setValue('0341');
             browser.keys("\uE004");
             browser.pause(1000);
             expect(RegisterPage.emailError).toBeExisting();
@@ -25,7 +25,6 @@ describe('Register Form', () => {
 
         it('should show invalid full name message', () => {
             RegisterPage.open();
-            browser.pause(1000);
             RegisterPage.inputFullName.setValue('Jason');
             browser.keys("\uE004");
             browser.pause(1000);
@@ -34,10 +33,9 @@ describe('Register Form', () => {
 
         it('should\'t show any error message', () => {
             RegisterPage.open();
-            browser.pause(1000);
             RegisterPage.inputFullName.setValue('Jason James');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.FNError).not.toBeExisting();
         });
     });
@@ -46,19 +44,17 @@ describe('Register Form', () => {
    
         it('should show invalid password message', () => {
             RegisterPage.open();
-            browser.pause(1000);
             RegisterPage.inputPassword.setValue('abcd');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.passError).toBeExisting();
         });
 
         it('should\'t show any error message', () => {
             RegisterPage.open();
-            browser.pause(1000);
             RegisterPage.inputPassword.setValue('0987ytre');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.passError).not.toBeExisting();
         });
 
@@ -67,15 +63,13 @@ describe('Register Form', () => {
     describe('Confirm Password Input', () => {
    
         it('should show invalid password message', () => {
-            browser.pause(2000);
             RegisterPage.inputConfPass.setValue('0987ytre');
             browser.keys("\uE004");
-            browser.pause(2000);
+            browser.pause(1000);
             expect(RegisterPage.CPassError).not.toBeExisting();
         });
        
         it('should show passwords do not message', () => {
-            browser.pause(2000);
             RegisterPage.inputConfPass.setValue('abcd');
             browser.keys("\uE004");
             browser.pause(2000);
@@ -83,34 +77,6 @@ describe('Register Form', () => {
         });
 
     });
-
-    describe('Login link', () => {
-       
-        it('should redirect to Login page', () => {
-            RegisterPage.otherFormLink.click();
-            browser.pause (2000);
-            expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/login.html');
-        });
-    });
-
-    describe('Reset Button', () => {
-
-        it('should clear all fields', () => {
-            RegisterPage.open();
-            RegisterPage.inputEmail.setValue('hola@martina.net');
-            RegisterPage.inputFullName.setValue('Martina ');
-            RegisterPage.inputPassword.setValue('0987ytre');
-            RegisterPage.inputConfPass.setValue('0987ytre');
-            RegisterPage.btnReset.click();
-            browser.pause(2000);
-            expect(RegisterPage.inputEmail).toHaveText('');
-            expect(RegisterPage.inputFullName).toHaveText('');
-            expect(RegisterPage.inputPassword).toHaveText('');
-            expect(RegisterPage.inputConfPass).toHaveText('');
-            
-        });
-    });
-
 
     describe('Submit Button', () => {
 
@@ -121,12 +87,57 @@ describe('Register Form', () => {
             RegisterPage.inputPassword.setValue('0987ytre');
             RegisterPage.inputConfPass.setValue('0987ytre');
             RegisterPage.btnSubmit.click();
+            browser.pause(1000);
             expect(RegisterPage.pEmail).toHaveText('Email: don@draper.net');
             expect(RegisterPage.pFullName).toHaveText('Full Name: Don Draper');
             expect(RegisterPage.pPassword).toHaveText('Password: 0987ytre');
         });
 
     }); 
+
+    describe('Reset Button', () => {
+
+        it('should clear all fields and message with valid data', () => {
+            RegisterPage.btnReset.click();
+            expect(RegisterPage.inputEmail).toHaveText('');
+            expect(RegisterPage.inputFullName).toHaveText('');
+            expect(RegisterPage.inputPassword).toHaveText('');
+            expect(RegisterPage.inputConfPass).toHaveText('');
+            browser.pause(1000);
+            expect(RegisterPage.pEmail).not.toBeDisplayed();
+            expect(RegisterPage.pFullName).not.toBeDisplayed();
+            expect(RegisterPage.pPassword).not.toBeDisplayed();
+            
+        });
+
+        it('should clear all fields and error messages', () => {
+            RegisterPage.open();
+            RegisterPage.inputEmail.setValue('email');
+            RegisterPage.inputFullName.setValue('Don');
+            RegisterPage.inputPassword.setValue('0987');
+            RegisterPage.inputConfPass.setValue('0987');
+            RegisterPage.btnReset.click();
+            browser.pause(1000);
+            expect(RegisterPage.inputEmail).toHaveText('');
+            expect(RegisterPage.inputFullName).toHaveText('');
+            expect(RegisterPage.inputPassword).toHaveText('');
+            expect(RegisterPage.inputConfPass).toHaveText('');
+            expect(RegisterPage.emailError).not.toBeDisplayed();
+            expect(RegisterPage.FNError).not.toBeDisplayed();
+            expect(RegisterPage.passError).not.toBeDisplayed();
+            expect(RegisterPage.CPassError).not.toBeDisplayed();
+        });
+    });
+
+    describe('Login link', () => {
+       
+        it('should redirect to Login page', () => {
+            RegisterPage.otherFormLink.click();
+            browser.pause (1000);
+            expect(browser).toHaveUrl('https://martinasierra.github.io/rr-qa-weeks-09-10/login.html');
+        });
+    });
+
 });
 
 
