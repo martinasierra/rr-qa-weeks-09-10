@@ -4,7 +4,7 @@
   "description": "Create a Login and a Register form and validate their requirements",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js --spec registerTest.js"
+    "test": "npx wdio run ./wdio.conf.js"
   },
   "repository": {
     "type": "git",
