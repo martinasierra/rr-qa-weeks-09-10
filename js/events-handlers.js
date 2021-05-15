@@ -80,7 +80,7 @@ submitBtn.onclick = function(event) {
     }
     else {
         let completeForm = document.createElement('p');
-        completeForm.textContent = ('Please complete the form with valid info.');
+        completeForm.textContent = ('Please complete the form with valid information');
         validationDiv.appendChild(completeForm);
 }
 };
